@@ -18,11 +18,9 @@ El proyecto utiliza Town01, un catálogo de 42 destinos y escenarios de 20 y 100
 - **NetworkX 2.6.3:** trabajo con grafos.
 - **Shapely 2.0.7:** operaciones geométricas.
 
-Estas versiones corresponden al entorno local verificado del proyecto.
-
 ## Requisitos Previos
 
-- Windows de 64 bits, como en el entorno utilizado para las demostraciones.
+- Windows de 64 bits.
 - CARLA 0.9.15 descomprimido por separado, con `CarlaUE4.exe`, el mapa Town01 y la carpeta `PythonAPI/carla`.
 - Python 3.7.9 de 64 bits y las dependencias del proyecto.
 - PowerShell para los comandos de demostración disponibles.
@@ -30,7 +28,7 @@ Estas versiones corresponden al entorno local verificado del proyecto.
 
 ## Instalación
 
-TrafficIA está incorporado en [src/](src/), con sus configuraciones, datos de entrada, scripts, pruebas y documentación técnica. Dentro de esa carpeta, `src/` es el paquete Python original; se conserva su estructura para mantener las importaciones y las rutas de datos.
+TrafficIA se encuentra en [src/](src/), junto con sus configuraciones, datos de entrada, scripts, pruebas y documentación técnica. Dentro de esa carpeta, `src/` contiene el paquete Python del proyecto.
 
 1. Abre PowerShell en la raíz de esta entrega, entra en la carpeta del software y comprueba el intérprete. El resultado debe ser `3.7.9 64`.
 
@@ -89,7 +87,7 @@ $carlaDir = Split-Path -Parent (Split-Path -Parent $env:CARLA_PYTHONAPI)
 $py = Join-Path (Get-Location).Path 'carla-env\Scripts\python.exe'
 ```
 
-`$carlaDir` corresponde a la carpeta que contiene `CarlaUE4.exe` y `$py` al intérprete del entorno virtual. Al abrir otra consola, entra de nuevo en `src/` y repite el bloque de carga; no es necesario reinstalar las dependencias. El host, el puerto, el mapa y la duración se configuran mediante JSON y argumentos de ejecución. Las herramientas de análisis establecen internamente `MPLCONFIGDIR` para su caché de Matplotlib; no es necesario añadirlo a `.env`.
+`$carlaDir` corresponde a la carpeta que contiene `CarlaUE4.exe` y `$py` al intérprete del entorno virtual. Al abrir otra consola, entra de nuevo en `src/` y repite el bloque de carga; no es necesario reinstalar las dependencias. El host, el puerto, el mapa y la duración se configuran mediante JSON y argumentos de ejecución.
 
 ## Ejecución
 
@@ -118,31 +116,25 @@ Para probar el selector basado en historiales, sustituye `--scenario random_base
 
 ## Capturas
 
-Las capturas del sistema se encuentran en [capturas/](capturas/). Se incluyen **15 imágenes**, numeradas consecutivamente: las capturas `01` a `12` están en JPG y las figuras `13` a `15` en PNG, sin duplicados exactos.
+Las capturas del sistema se encuentran en [capturas/](capturas/). Se incluyen **15 imágenes**, numeradas consecutivamente.
 
-Las primeras 12 imágenes muestran el inicio de CARLA, la carga de Town01, circulación, viajes con ruta y los cuatro casos de 20 y 100 vehículos con ambos selectores. Las tres figuras siguientes presentan resultados experimentales de Town01, con semilla 210 y corridas de **3600 segundos simulados**, distintas de las demostraciones de 30 segundos del video.
+Las primeras 12 imágenes muestran el inicio de CARLA, la carga de Town01, circulación, viajes con ruta y los cuatro casos de 20 y 100 vehículos con ambos selectores. Las tres figuras siguientes presentan resultados experimentales de TrafficIA.
 
 | Figura | Contenido y relación con los objetivos |
 |---|---|
-| [Captura 13](capturas/captura-13.png) | Distribución de destinos asignados y alcanzados por categoría, con 20 y 100 vehículos en la primera repetición. Relaciona las tres categorías del objetivo 1 con la comparación de selectores del objetivo 3. |
-| [Captura 14](capturas/captura-14.png) | Crecimiento del historial y proporciones observadas de rutina y exploración en la primera repetición. Ilustra el comportamiento del modelo implementado en el objetivo 2; la probabilidad 80/20 no impone una cuota exacta de decisiones. |
-| [Captura 15](capturas/captura-15.png) | Tiempo medio de viajes completados, velocidad media de presencia y tasas de colisión e invasión de carril en dos repeticiones. Complementa la distribución de destinos para examinar las métricas del objetivo 3 e incluye la proporción de viajes incompletos. |
-
-Las figuras se conservan sin modificaciones a partir de los resultados de TrafficIA: la primera repetición corresponde a la noche del 21 al 22 de septiembre de 2026 y la segunda a la del 22 al 23. La comparación es descriptiva, con una sola semilla y dos repeticiones por combinación; el tiempo medio considera únicamente viajes completados, la velocidad incluye las esperas y las notificaciones de los sensores no equivalen a accidentes independientes. El [informe final](docs/informe_final.pdf) desarrolla la metodología, los resultados y sus limitaciones.
+| [Captura 13](capturas/captura-13.png) | Distribución de destinos asignados y alcanzados por categoría para comparar ambos selectores (objetivos 1 y 3). |
+| [Captura 14](capturas/captura-14.png) | Evolución del historial y proporciones de decisiones de rutina y exploración del modelo (objetivo 2). |
+| [Captura 15](capturas/captura-15.png) | Tiempo medio de viajes completados, velocidad media de presencia e indicadores de colisión e invasión de carril para comparar los selectores (objetivo 3). |
 
 ## Demo
 
 El [video demostrativo de TrafficIA](demo/demo.mp4) presenta el proyecto, muestra las cuatro corridas de 20 y 100 vehículos con ambos selectores, explica sus registros y cierra con el aporte del sistema.
-
-El archivo está en **MP4/H.264**, con resolución de **1280 × 720**, **30 FPS**, narración en audio AAC estéreo y un tamaño de **88,12 MB**. Su duración es **5 min 32,5 s**.
 
 ## Documentación
 
 - [Informe final](docs/informe_final.pdf).
 - [Consentimiento de uso de fotografías y video firmado](docs/consentimiento_firmado.pdf).
 - [Documentación técnica de TrafficIA](src/docs/README.md).
-
-El informe actual se conservará hasta que el autor incorpore la versión con las firmas de aprobación. El consentimiento de uso de fotografías y video ya está firmado.
 
 La organización sigue el [manual oficial de entrega](https://csuvg.github.io/Guia-entrega-trabajo-graduacion/docs/manual.html).
 
