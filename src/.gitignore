@@ -1,0 +1,19 @@
+/carla-env
+
+# Local environment configuration
+.env
+.env.*
+!.env.example
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Generated simulation outputs
+/data/output/*
+!/data/output/.gitkeep
+
+# Generated figure collection (images, gallery, catalogue and LaTeX snippets)
+/images/
+
+/docs/archivo-local/
