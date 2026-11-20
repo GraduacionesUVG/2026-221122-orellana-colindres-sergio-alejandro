@@ -1,0 +1,65 @@
+# Entornos y dependencias instaladas
+.venv/
+venv/
+env/
+carla-env/
+node_modules/
+vendor/
+
+# Configuración privada; conservar los ejemplos de entorno
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+*.pem
+*.key
+
+# Cachés y resultados temporales de herramientas
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+tmp/
+temp/
+*.tmp
+*.log
+
+# Editor y sistema operativo
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Distribuciones externas del simulador
+CarlaUE4/
+Engine/
+WindowsNoEditor/
+CARLA_*.zip
+AdditionalMaps_*.zip
+
+# Herramientas locales de agentes
+.agents/
+.codex/
+
+# Resultados generados por TrafficIA
+/src/data/output/*
+!/src/data/output/.gitkeep
+/src/images/
+/src/docs/archivo-local/
+
+# Documentación auxiliar local
+/capturas/README.md
+/demo/README.md
+/demo/comandos.md
+/docs/control-entrega.md
